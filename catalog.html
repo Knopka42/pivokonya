@@ -3,321 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пиво для Коня | Каталог</title>
+    <title>Секретная кнопка | Анекдоты про коня и пиво</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: #121212;
-            color: #e0e0e0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
-
         .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        :root {
-            --accent: #e6b422;
-            --gray-border: #404040;
-        }
-
-        .navbar {
-            background: #181818e6;
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--gray-border);
-            padding: 16px 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: #e0e0e0;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #ddd;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .page-header {
             text-align: center;
-            padding: 60px 0 30px;
+            padding: 40px;
         }
-
-        .page-header h1 {
-            font-size: 3rem;
-            color: var(--accent);
-        }
-
-        .page-header p {
-            color: #aaa;
-            margin-top: 10px;
-        }
-
-        .beer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .beer-card {
+        .secret-card {
             background: #2a2a2a;
-            border-radius: 28px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s;
-            border: 1px solid var(--gray-border);
-        }
-
-        .beer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
-            border-color: var(--accent);
-        }
-
-        .beer-img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .beer-info {
-            padding: 24px 22px 30px;
-        }
-
-        .beer-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .taste-note {
-            display: inline-block;
-            background: #1f1f1f;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            margin: 12px 0;
-            border-left: 3px solid var(--accent);
-        }
-
-        .beer-desc {
-            color: #c0c0c0;
-            line-height: 1.5;
-            margin: 12px 0;
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .btn-order {
-            background: transparent;
-            border: 1.5px solid var(--accent);
-            padding: 10px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--accent);
-            transition: all 0.25s ease;
-        }
-
-        .btn-order:hover {
-            background: var(--accent);
-            color: #121212;
-            transform: scale(1.02);
-        }
-
-        footer {
-            background: #0f0f0f;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--gray-border);
-            margin-top: 60px;
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2c2c2c;
-            color: var(--accent);
-            padding: 12px 28px;
             border-radius: 60px;
-            font-weight: 600;
-            border-left: 4px solid var(--accent);
-            opacity: 0;
-            transition: 0.2s;
-            pointer-events: none;
-            z-index: 200;
+            padding: 50px;
+            border: 2px solid #e6b422;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-
-        .toast.show {
-            opacity: 1;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e6b422;
         }
-
-        @media (max-width: 800px) {
-            .page-header h1 { font-size: 2.2rem; }
-            .nav-links { gap: 20px; }
+        .secret-btn-big {
+            background: #e6b422;
+            border: none;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            font-size: 60px;
+            cursor: pointer;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(230,180,34,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .secret-btn-big:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: #f0c45a;
+            box-shadow: 0 0 35px rgba(230,180,34,0.8);
+        }
+        .joke-box {
+            background: #1e1e1e;
+            border-radius: 30px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #e6b422;
+        }
+        .joke-question {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        .joke-answer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e6b422;
+        }
+        .counter {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
-
-<div class="toast" id="toastMsg">🍻 Добавлено в корзину</div>
-
-<nav class="navbar">
-    <div class="container nav-container">
-        <a href="index.html" class="logo">ПИВО<span>ДЛЯ КОНЯ</span></a>
-        <ul class="nav-links">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="catalog.html">Каталог</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="page-header">
-        <h1>🍺 Наш каталог</h1>
-        <p>6 сортов — каждый с уникальным характером и глубоким вкусом</p>
-    </div>
-
-    <div class="beer-grid" id="catalogGrid"></div>
-</div>
-
-<footer>
     <div class="container">
-        <p>🍺 Пиво для Коня — доставка по всей стране. Пейте ответственно.</p>
-    </div>
-</footer>
-
-<script>
-    const catalogBeers = [
-        {
-            name: "Золотая грива",
-            img: "https://placehold.co/600x450/2f2f2f/e6b422?text=Golden+Mane+Pale+Ale",
-            desc: "Янтарный эль с нотами цитрусов и сосны. Легкая горчинка и долгое медовое послевкусие.",
-            taste: "Цитрус, хмель, цветы",
-            price: "490"
-        },
-        {
-            name: "Ночной галоп",
-            img: "https://placehold.co/600x450/2a2a2a/d4af37?text=Night+Gallop+Stout",
-            desc: "Плотный стаут с обжаренным солодом, шоколадными нюансами и лёгкой сладостью.",
-            taste: "Шоколад, кофе, карамель",
-            price: "590"
-        },
-        {
-            name: "Ржаной мустанг",
-            img: "https://placehold.co/600x450/353535/e6b422?text=Rye+Mustang+Ale",
-            desc: "Пшеничное пиво с пряными нотами ржи и апельсиновой цедры. Пикантное и свежее.",
-            taste: "Ржаной хлеб, специи",
-            price: "530"
-        },
-        {
-            name: "Сильный жеребец IPA",
-            img: "https://placehold.co/600x450/282828/f4c542?text=Stallion+IPA",
-            desc: "Америкэн IPA с тройным охмелением. Взрыв тропических фруктов, смолистый финиш.",
-            taste: "Манго, маракуйя, пихта",
-            price: "650"
-        },
-        {
-            name: "Копытный лагер",
-            img: "https://placehold.co/600x450/323232/e6b422?text=Hoof+Lager",
-            desc: "Классический чешский лагер с хрустящей чистотой. Мягкий вкус с хлебными нотками.",
-            taste: "Солод, бисквит",
-            price: "450"
-        },
-        {
-            name: "Тёмная лошадка",
-            img: "https://placehold.co/600x450/262626/e0b03b?text=Dark+Horse+Porter",
-            desc: "Портер с тонами жженой карамели, лесного ореха и лёгким дымком.",
-            taste: "Орехи, дым, ирис",
-            price: "620"
-        }
-    ];
-
-    function showToast(message) {
-        const toast = document.getElementById('toastMsg');
-        toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2500);
-    }
-
-    function renderCatalog() {
-        const grid = document.getElementById('catalogGrid');
-        grid.innerHTML = catalogBeers.map(beer => `
-            <div class="beer-card">
-                <img class="beer-img" src="${beer.img}" alt="${beer.name}" loading="lazy">
-                <div class="beer-info">
-                    <div class="beer-title">${beer.name}</div>
-                    <div class="taste-note">🍺 Вкус: ${beer.taste}</div>
-                    <div class="beer-desc">${beer.desc}</div>
-                    <div class="price-row">
-                        <div class="price">${beer.price} ₽ <small style="font-size:0.8rem;">/ 0.5л</small></div>
-                        <button class="btn-order" data-name="${beer.name}">Заказать</button>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-
-        document.querySelectorAll('.btn-order').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const name = btn.getAttribute('data-name');
-                showToast(`🍻 ${name} добавлено в корзину!`);
-                btn.style.transform = 'scale(0.95)';
-                setTimeout(() => btn.style.transform = '', 150);
-            });
-        });
-    }
-
-    renderCatalog();
-</script>
-
-</body>
-</html>
+        <div class="secret-card">
+            <h1>🍺 Секретная кнопка 🐴</h1>
+            <p>Нажми на неё, и конь расскажет анекдот</p>
+            
+            <div class="secret-btn-big" id="bigSecretBtn">🍻</div>
+            
+            <div class="joke-box" id="jokeBox">
+                <div class="joke-question" id="jokeQuestion">🐎 Нажми на кнопку...</div>
+                <div class="joke-answer" id="jokeAnswer
